@@ -3,11 +3,14 @@ final int canvas_height = 400;
 final int life_width = 8;
 final int life_height = 8;
 
+// for processing.js
+// move member variables to global
+int wc;
+int hc;
+boolean[][] board;
+
 class Board {
-  private final int wc;
-  private final int hc;
-  private boolean[][] board;
-  
+ 
   public Board() {
     wc = canvas_width / life_width;
     hc = canvas_height / life_height;
@@ -76,12 +79,10 @@ class Board {
     for (int x = 0; x < wc; ++x) {
       for (int y = 0; y < hc; ++y) {
         int c = getLives(x, y);
-        if (board[y][x]) {
-          if (c == 2 || c == 3)
-            nextBoard[y][x] = true;
-        } else {
-          if (c == 3)
-            nextBoard[y][x] = true;
+        if (board[y][x])
+          nextBoard[y][x] = (c == 2 || c == 3);
+        else
+          nextBoard[y][x] = (c == 3);
         }
       }
     }
@@ -106,10 +107,12 @@ PFont font = null;
 boolean paused = false;
 
 void settings() {
+  // for processing
   //size(canvas_width, canvas_height);
 }
 
 void setup() {
+  // for processing.js
   size(canvas_width, canvas_height);
   font = createFont("", 24);
   frameRate(10);
