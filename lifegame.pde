@@ -5,12 +5,15 @@ final int life_height = 8;
 
 // for processing.js
 // move member variables to global
-int wc;
-int hc;
-boolean[][] board;
+//int wc;
+//int hc;
+//boolean[][] board;
 
 class Board {
- 
+  private final int wc;
+  private final int hc;
+  private boolean[][] board;
+  
   public Board() {
     wc = canvas_width / life_width;
     hc = canvas_height / life_height;
