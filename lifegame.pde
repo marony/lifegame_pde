@@ -110,12 +110,12 @@ boolean paused = false;
 
 void settings() {
   // for processing
-  //size(canvas_width, canvas_height);
+  size(canvas_width, canvas_height);
 }
 
 void setup() {
   // for processing.js
-  size(canvas_width, canvas_height);
+  //size(canvas_width, canvas_height);
   font = createFont("", 24);
   frameRate(10);
   background(0, 0, 0);
