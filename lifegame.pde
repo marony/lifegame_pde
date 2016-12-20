@@ -15,8 +15,8 @@ class Board {
   private boolean[][] board;
   
   public Board() {
-    wc = canvas_width / life_width;
-    hc = canvas_height / life_height;
+    wc = Math.floor(canvas_width / life_width);
+    hc = Math.floor(canvas_height / life_height);
     board = initializeBoard();
     
     board[10][0] = true;
@@ -92,11 +92,11 @@ class Board {
   }
   
   public void flip(int x, int y) {
-    int dx = x / life_width;
+    int dx = Math.floor(x / life_width);
     if (dx < 0)
       dx += wc;
     dx = dx % wc;
-    int dy = y / life_height;
+    int dy = Math.floor(y / life_height);
     if (dy < 0)
       dy += hc;
     dy = dy % hc;
@@ -110,12 +110,12 @@ boolean paused = false;
 
 void settings() {
   // for processing
-  size(canvas_width, canvas_height);
+  //size(canvas_width, canvas_height);
 }
 
 void setup() {
   // for processing.js
-  //size(canvas_width, canvas_height);
+  size(canvas_width, canvas_height);
   font = createFont("", 24);
   frameRate(10);
   background(0, 0, 0);
