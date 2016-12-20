@@ -83,7 +83,6 @@ class Board {
           nextBoard[y][x] = (c == 2 || c == 3);
         else
           nextBoard[y][x] = (c == 3);
-        }
       }
     }
     board = nextBoard;
